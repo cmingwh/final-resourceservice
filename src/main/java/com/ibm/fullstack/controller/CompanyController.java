@@ -44,4 +44,9 @@ public class CompanyController {
     public List<Company> findAll() {
         return companyService.findAll();
     }
+    
+    @PostMapping(value = "/search")
+    public List<Company> search(@RequestBody Company company) {
+        return companyService.search(company);
+    }
 }

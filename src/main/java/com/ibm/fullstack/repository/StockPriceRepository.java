@@ -12,7 +12,7 @@ import com.ibm.fullstack.entity.StockPrice;
 @Repository
 public interface StockPriceRepository  extends CrudRepository<StockPrice, Long> {
 
-	@Query(value = "select s from StockPrice s where s.companyCode in :companies and s.happenTime < :to and s.happenTime > :from")
+	@Query(value = "select s from StockPrice s where s.companyCode in :companies and s.happenTime < :to and s.happenTime > :from order by companyCode asc, happenTime asc")
 	List<StockPrice> searchByCompanies(String[] companies, Date from, Date to);
 
 }
